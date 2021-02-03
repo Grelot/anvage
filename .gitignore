@@ -1,0 +1,5 @@
+*.vcf
+tests/__pycache__
+anvage/__pycache__
+.pytest_cache
+currentgff.db
