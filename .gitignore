@@ -1,5 +1,6 @@
 *.vcf
 tests/__pycache__
+tests/data/genome.fasta.fai
 anvage/__pycache__
 .pytest_cache
 currentgff.db
