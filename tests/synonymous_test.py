@@ -10,9 +10,9 @@ from vcfsynonymous.synonymous import variant_position_within
 from vcfsynonymous.synonymous import is_synonymous
 
 
-class VariantCodonSynonymousTest(unittest.TestCase):
+class synonymousTest(unittest.TestCase):
     """
-    test case to check function from the submodule synonymous from the module VariantCodon    
+    test case to check function from the module synonymous
     """    
 
     def test_variant_position_within_var_outside(self):
