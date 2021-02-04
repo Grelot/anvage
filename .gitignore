@@ -7,3 +7,6 @@ __pycache__
 currentgff.db
 res_*
 *fasta
+build/
+dist/
+anvage.egg-info/
