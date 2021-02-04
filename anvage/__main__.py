@@ -27,6 +27,8 @@ import argparse
 import gffutils
 import pyfaidx
 from Bio.Seq import Seq
+from Bio import SeqIO
+from Bio.SeqRecord import SeqRecord
 import vcf
 
 ## Local applications import
@@ -35,22 +37,23 @@ from anvage.objets import CdsSeq
 from anvage.dbfasta2CdsSeq import dbfasta2CdsSeq
 from anvage.synonymous import variant_position_within
 from anvage.synonymous import is_synonymous
-
+from anvage.flankingSequences import vcf_flanking_sequences
 
 def main():
-    args = parse_args()
-    dbfnFile = 'currentgff.db'
-    ## read GFF3 file
-    if os.path.exists(dbfnFile):
-        os.remove(dbfnFile)
-    db = gffutils.create_db(args.annotation, dbfn=dbfnFile)
+    args = parse_args()    
     ## read FASTA genome file
     fasta = pyfaidx.Fasta(args.genome)
     ## read VCF file
     vcf_reader = list(vcf.Reader(open(args.vcf, 'r')))
     ## commands
+    #### SYNONYMOUS COMMAND
     if args.command == 'synonymous':
         print("read VCF and detect synonymous and non-synonymous coding variants...", end="")
+        dbfnFile = 'currentgff.db'
+        ## read GFF3 file
+        if os.path.exists(dbfnFile):
+            os.remove(dbfnFile)
+        db = gffutils.create_db(args.annotation, dbfn=dbfnFile)
         ## From the genome(GFF3, FASTA),
         ## extract a list of CDS (coding sequences) objects
         cdsSeqList = dbfasta2CdsSeq(db, fasta)
@@ -67,9 +70,14 @@ def main():
                         vcf_writer_synonymous.write_record(variant)
                     else:
                         vcf_writer_non_synonymous.write_record(variant)               
-                    break       
+                    break 
+    #### FLANK COMMAND      
     elif args.command == 'flank':
-        print("read VCF and extract flanking sequences of variants from the genome...")
+        print("read VCF and extract flanking sequences of variants from the genome...", end= "")
+        windowsSize = args.windowsSize
+        sequences = vcf_flanking_sequences(vcf_reader, fasta, windowsSize)
+        with open(args.output_prefix+"_flanking.fasta", "w") as output_handle:
+            SeqIO.write(sequences, output_handle, "fasta")
     else:
         print("Au revoir !")
         sys.exit(0)    

@@ -35,7 +35,8 @@ def parse_args(usage=HELPER_TEXT):
     flank = subprasers.add_parser('flank', help='extract SNPs flanking sequences based on coordinates')
     flank.add_argument("-f","--vcf", type=str, help='path of the variant Calling File (VCF) with variants from which you want to extract genome sequences')
     flank.add_argument("-g","--genome", type=str, help='path of the genome sequences FASTA file')
-    flank.add_argument("-a","--annotation",type=str, help='path of the genome annotation GFF3 file')       
+    flank.add_argument("-w","--windowsSize", type=int, help='size of window centered on position of variant to extract sequences from the genome')
+    flank.add_argument("-o","--output_prefix", type=str, help='prefix of the output FASTA file such as [PREFIX]_.flanking.fasta')
     
     args = parser.parse_args()
 
