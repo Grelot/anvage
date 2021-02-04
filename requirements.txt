@@ -1,0 +1,7 @@
+argparse
+numpy
+biopython
+bcbio-gff
+pyfaidx
+gffutils
+PyVCF
