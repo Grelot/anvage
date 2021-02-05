@@ -1,6 +1,8 @@
-# anvage
-ANnotation Variants GEnome is a toolkit software to perform frequent processing on VCF, GFF3 and FASTA genome
+# ANVAGE
 
+[![Build Status](https://travis-ci.com/Grelot/anvage.svg?branch=main)](https://travis-ci.com/Grelot/anvage)
+
+ANnotation Variants GEnome is a toolkit software to perform frequent processing on VCF, GFF3 and FASTA genome
 
 
 # usage
