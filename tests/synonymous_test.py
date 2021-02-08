@@ -6,32 +6,13 @@ import unittest
 from unittest.mock import Mock
 ## Local applications import
 from anvage.objets import CdsSeq
-from anvage.synonymous import variant_position_within
 from anvage.synonymous import is_synonymous
 
 
 class synonymousTest(unittest.TestCase):
     """
     test case to check function from the module synonymous
-    """    
-
-    def test_variant_position_within_var_outside(self):
-        """
-        test case function variant_position_within
-        check variant outside intervals are not detected
-        """        
-        variant_within_no_cds = Mock(CHROM="chrom1", POS=2) ## variant.ID = 8        
-        cdsSeq_cds = Mock(seqid = "chrom1", start=13, end=27) ## cdsSeqList[0]
-        assert variant_position_within(variant_within_no_cds, cdsSeq_cds) == 0
-
-    def test_variant_position_within_var_within(self):
-        """
-        test case function variant_position_within
-        check variant inside intervals are detected
-        """        
-        variant_within_cds = Mock(CHROM="chrom1", POS=21) ## variant.ID = 1       
-        cdsSeq_cds = Mock(seqid = "chrom1", start=13, end=27) ## cdsSeqList[0]
-        assert variant_position_within(variant_within_cds, cdsSeq_cds) == 1
+    """
 
     def test_is_synonymous_nonsynonymous_first_codon(self):
         """

@@ -1,7 +1,7 @@
 ## Standard library imports
 import sys
 import os
-import pickle
+#import pickle
 import unittest
 ## Third party imports (bioinformatics)
 import gffutils
@@ -19,7 +19,6 @@ class VariantCodonTest(unittest.TestCase):
         dirname = os.path.dirname(__file__) 
         dbGffFile = os.path.join(dirname, 'data/gff.db')
         genomeFastaFile = os.path.join(dirname, 'data/genome.fasta')
-        #cdsSeqListFile = os.path.join(dirname, 'data/cdsSeqList.pyObject')
         self.db = gffutils.FeatureDB(dbGffFile)
         self.fasta = pyfaidx.Fasta(genomeFastaFile)
         #self.cdsSeqList = pickle.load( open( cdsSeqListFile, "rb" ) )
