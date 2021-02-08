@@ -9,7 +9,14 @@
 
 ANnotation Variants GEnome is a toolkit software to perform routine operations that involve VCF, GFF3 and FASTA genome files.
 
-# usage
+# Installation
+
+```
+pip3 install anvage
+```
+
+
+# Usage
 
 
 ```
