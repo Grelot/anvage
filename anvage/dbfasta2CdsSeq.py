@@ -9,7 +9,9 @@ def dbfasta2CdsSeq(db, fasta):
     return a list of CdsSeq objects
     convert CDS sequences onto genome into CdsSeq object
     """
-    cdsSeqList = []
+    countFeature = db.count_features_of_type('CDS')+db.count_features_of_type('cds')
+    cdsSeqList = [None] * countFeature
+    i=0
     for cds in db.features_of_type(['CDS','cds']):
         #print(cds.sequence(fasta))
         #print(cds.seqid)
@@ -22,5 +24,7 @@ def dbfasta2CdsSeq(db, fasta):
             cdsSeqEnd = cds.end
             cdsSeqcoding = cdsSeq[cdsSeqStartCodon:]
             cdsSeqObj = CdsSeq(cdsSeqID, cdsSeqStart, cdsSeqEnd, cdsSeqcoding)
-            cdsSeqList.append(cdsSeqObj)
+            cdsSeqList[i] = cdsSeqObj
+        i=i+1
+    cdsSeqList = list(filter(None.__ne__, cdsSeqList))
     return(cdsSeqList)
