@@ -1,6 +1,10 @@
 # ANVAGE
 
 [![Build Status](https://travis-ci.com/Grelot/anvage.svg?branch=main)](https://travis-ci.com/Grelot/anvage)
+[![PyPi Version](https://d25lcipzij17d.cloudfront.net/badge.svg)](https://pypi.org/project/anvage)
+[![PyPi Python Versions](https://img.shields.io/pypi/pyversions/anvage.svg)](https://pypi.org/project/anvage)
+
+
 
 
 ANnotation Variants GEnome is a toolkit software to perform routine operations that involve VCF, GFF3 and FASTA genome files.
