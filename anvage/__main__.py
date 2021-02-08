@@ -34,8 +34,9 @@ import vcf
 ## Local applications import
 from anvage.arguments import parse_args
 from anvage.objets import CdsSeq
+from anvage.selectAnnotatedVariants import variant_position_within
+from anvage.selectAnnotatedVariants import select_annotation_type
 from anvage.dbfasta2CdsSeq import dbfasta2CdsSeq
-from anvage.synonymous import variant_position_within
 from anvage.synonymous import is_synonymous
 from anvage.flankingSequences import vcf_flanking_sequences
 
@@ -46,8 +47,25 @@ def main():
     ## read VCF file
     vcf_reader = list(vcf.Reader(open(args.vcf, 'r')))
     ## commands
+    #### SELECT COMMAND
+    if args.command == 'select':
+        print("read VCF and select variants located on annotated '"+args.selectionAnnotationType+"' genome regions...", end="")
+        dbfnFile = 'currentgff.db'
+        ## read GFF3 file
+        if os.path.exists(dbfnFile):
+            os.remove(dbfnFile)
+        db = gffutils.create_db(args.annotation, dbfn=dbfnFile)
+        ## list of selected type annotated region
+        annotationRegionList = select_annotation_type(db, fasta, args.selectionAnnotationType)
+        ## write variant VCF into annotated region
+        vcf_writer_annotated = vcf.Writer(open(args.output_prefix+'_'+args.selectionAnnotationType+'.vcf', 'w'), vcf.Reader(open(args.vcf, 'r')))
+        for variant in vcf_reader:
+            for region in annotationRegionList:
+                if variant_position_within(variant, region):
+                    vcf_writer_annotated.write_record(variant)
+                    break
     #### SYNONYMOUS COMMAND
-    if args.command == 'synonymous':
+    elif args.command == 'synonymous':
         print("read VCF and detect synonymous and non-synonymous coding variants...", end="")
         dbfnFile = 'currentgff.db'
         ## read GFF3 file
