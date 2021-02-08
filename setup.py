@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name='anvage',
-    version='0.1.0',
+    version='0.1.1',
     author="Pierre-Edouard GUERIN",    
     author_email="pierre-edouard.guerin@cefe.cnrs.fr",
     description="toolkit to process routine operation on gff3, vcf and fasta files",

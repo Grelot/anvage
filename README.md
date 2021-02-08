@@ -1,7 +1,7 @@
 # ANVAGE
 
 [![Build Status](https://travis-ci.com/Grelot/anvage.svg?branch=main)](https://travis-ci.com/Grelot/anvage)
-[![PyPi Version](https://d25lcipzij17d.cloudfront.net/badge.svg)](https://pypi.org/project/anvage)
+[![PyPI version](https://badge.fury.io/py/anvage.svg)](https://badge.fury.io/py/anvage)
 [![PyPi Python Versions](https://img.shields.io/pypi/pyversions/anvage.svg)](https://pypi.org/project/anvage)
 
 
