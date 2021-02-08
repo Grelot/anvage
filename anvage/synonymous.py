@@ -2,21 +2,6 @@ from Bio.Seq import Seq
 from anvage.objets import CdsSeq
 
 
-def variant_position_within(coordsVar, coordsInterval):
-    """
-    check if coordsVars is within coordsInterval. Return 0
-    """
-    if coordsVar.CHROM == coordsInterval.seqid:
-        if coordsVar.POS >= coordsInterval.start:            
-            if coordsVar.POS <= coordsInterval.end:
-                return(1)
-            else:
-                return(0)
-        else:
-            return(0)
-    return(0)
-
-
 def is_synonymous(variant, cds):
     """
     check if a variant REF/ALT is synonymous or not from CDS codon in within it is located
