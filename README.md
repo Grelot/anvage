@@ -37,4 +37,3 @@ anvage flank --vcf tests/data/sample.vcf \
 ```
 
 
-https://github.com/laurabenestan/BLAST/blob/master/flanking_sequence.py
