@@ -53,7 +53,7 @@ The [**CNRS**](https://www.cnrs.fr/) research unit [**CEFE**](https://www.cefe.c
 
 # Contributions and Support
 
-🐛 If you are sure you have found a bug, please submit a bug report. You can submit your bug reports on 
+🐛 If you are sure you have found a bug, please submit a bug report. You can submit your bug reports on Github [here](https://github.com/Grelot/anvage/issues)
 
 
 # Citations
