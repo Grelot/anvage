@@ -47,7 +47,7 @@ anvage flank --vcf tests/data/sample.vcf \
 
 **ANVAGE** was coded and written by Emilie Boulanger and Pierre-Edouard Guerin.
 
-We thank the following people for their help in the development of this pipeline: Stephanie Manel, Virginie Marques.
+We thank the following people for their help in the development of this pipeline: Stephanie Manel, Laura Benestan.
 
 The [**CNRS**](https://www.cnrs.fr/) research unit [**CEFE**](https://www.cefe.cnrs.fr/fr/), team [Biogeography of Vertebrates](https://twitter.com/ephe_bev) supports and contributes to the **ANVAGE** project.
 
